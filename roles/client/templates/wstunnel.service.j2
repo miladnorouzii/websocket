@@ -1,0 +1,12 @@
+[Unit]
+Description=Websocket Tunnel
+After=network.target
+
+[Service]
+Type=simple
+User=nobody
+ExecStart=/usr/local/bin/wstunnel -v -D 0.0.0.0:{{ local_port }} ws://{{ hostvars["server01"]['ansible_default_ipv4']['address'] }}:{{ server_port }}
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target 

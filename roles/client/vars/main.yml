@@ -1,0 +1,5 @@
+---
+# vars file for websocket
+server_ip: 188.121.107.224
+server_port: 81
+local_port: 8888

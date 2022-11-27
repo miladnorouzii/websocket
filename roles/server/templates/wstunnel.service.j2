@@ -1,0 +1,11 @@
+[Service]
+ExecStart=/usr/local/bin/wstunnel --server ws://0.0.0.0:{{ server_port }}
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=wstunnel
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target

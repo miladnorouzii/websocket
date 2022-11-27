@@ -1,0 +1,17 @@
+- name: Download websocket
+  get_url: 
+    url: https://github.com/erebe/wstunnel/releases/download/v4.1/wstunnel-x64-linux
+    dest: /usr/local/bin/wstunnel
+    mode: '0755'
+
+- name: copy systemd service
+  template:
+    src: wstunnel.service.j2
+    dest: /etc/systemd/system/wstunnel.service
+
+- name: setup wstunnel systemd
+  systemd:
+    daemon_reload: true
+    state: started
+    enabled: true
+    name: wstunnel

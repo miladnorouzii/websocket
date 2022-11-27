@@ -1,0 +1,10 @@
+---
+# tasks file for websocket
+- name: Include websocket instructions
+  include_tasks: websocket.yml
+
+- name: Include redsocks instructions
+  include_tasks: redsocks.yml
+
+- name: Include iptables instructions
+  include_tasks: iptables.yml

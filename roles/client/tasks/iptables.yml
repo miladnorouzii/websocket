@@ -1,0 +1,13 @@
+- name: install iptables-persistent
+  apt:
+    name: iptables-persistent
+    state: present
+
+- name: copy iptables rules
+  template: 
+    src: rules.sh.j2
+    dest: /usr/local/src/rules.sh
+    mode: 0755
+
+- name: run the script
+  shell: 'bash /usr/local/src/rules.sh'

@@ -1,0 +1,4 @@
+- name: websocket roles
+  hosts: all
+  roles:
+  - client
